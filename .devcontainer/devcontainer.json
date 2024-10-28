@@ -2,10 +2,11 @@
     "name": ".NET 8 playground",
     "dockerComposeFile": ["../docker/docker-compose.yaml"],
     "service": "dev-env",
-    "workspaceFolder": "/workspace",
+    "workspaceFolder": "/workspace/mTT",
     "customizations": {
         "vscode": {
             "extensions": [
+                "ms-dotnettools.csdevkit",
                 "ms-dotnettools.csharp",
                 "mikestead.dotenv",
                 "fernandoescolar.vscode-solution-explorer",
