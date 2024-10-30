@@ -1,5 +1,5 @@
 {
-    "name": ".NET 8 playground",
+    "name": ".NET 8 mTT",
     "dockerComposeFile": ["../docker/docker-compose.yaml"],
     "service": "dev-env",
     "workspaceFolder": "/workspace/mTT",
