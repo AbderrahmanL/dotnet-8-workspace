@@ -19,7 +19,13 @@ RUN wget -O dotnet.tar.gz https://download.visualstudio.microsoft.com/download/p
 && tar -zxf dotnet.tar.gz -C /usr/share/dotnet \
 && rm dotnet.tar.gz
 
-ADD https://raw.githubusercontent.com/AbderrahmanL/My-configs/refs/heads/main/.zshrc /root/.zshrc
+RUN chsh -s /bin/zsh vscode
 
+USER vscode
+
+ADD https://raw.githubusercontent.com/AbderrahmanL/My-configs/refs/heads/main/.zshrc /vscode/.zshrc
+
+WORKDIR /home/vscode/workspace
+# RUN --mount=type=ssh git clone git@github.com:AbderrahmanL/mTT.git
 
 
