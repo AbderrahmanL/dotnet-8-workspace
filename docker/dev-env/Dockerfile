@@ -24,6 +24,7 @@ RUN chsh -s /bin/zsh vscode
 USER vscode
 
 ADD https://raw.githubusercontent.com/AbderrahmanL/My-configs/refs/heads/main/.zshrc /vscode/.zshrc
+ADD config /vscode/.ssh/
 
 WORKDIR /home/vscode/workspace
 # RUN --mount=type=ssh git clone git@github.com:AbderrahmanL/mTT.git
