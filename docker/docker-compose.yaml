@@ -5,6 +5,7 @@ services:
     build:
       context: ./dev-env
     volumes:
-      - "..:/workspace"
+      - "..:/home/vscode/workspace"
+      - "~/.ssh:/home/vscode/.ssh"
     stdin_open: true # docker run -i
     tty: true # docker run -t
