@@ -1,6 +1,6 @@
 # [Choice] .NET version: 7.0, 6.0, 5.0, 3.1, 6.0-bullseye, 5.0-bullseye, 3.1-bullseye, 6.0-focal, 5.0-focal, 3.1-focal
 ARG VARIANT="8.0"
-FROM mcr.microsoft.com/vscode/devcontainers/dotnet:${VARIANT}
+FROM mcr.microsoft.com/vscode/devcontainers/dotnet:${VARIANT} as base
 
 RUN apt-get update && \
     export DEBIAN_FRONTEND=noninteractive && \
@@ -21,12 +21,12 @@ RUN wget -O dotnet.tar.gz https://download.visualstudio.microsoft.com/download/p
 
 RUN chsh -s /bin/zsh vscode
 
+FROM base as prep
+
 USER vscode
 
 ADD https://raw.githubusercontent.com/AbderrahmanL/My-configs/refs/heads/main/.zshrc /vscode/.zshrc
-ADD config /vscode/.ssh/
 
-WORKDIR /home/vscode/workspace
-# RUN --mount=type=ssh git clone git@github.com:AbderrahmanL/mTT.git
+WORKDIR /home/vscode/workspace/mTT
 
 

@@ -4,8 +4,10 @@ services:
     container_name: dev-env
     build:
       context: ./dev-env
+      ssh:                    # New functionality in PRs
+        - default
     volumes:
+      - "./dev-env/config:/home/vscode/.ssh/config"
       - "..:/home/vscode/workspace"
-      - "~/.ssh:/home/vscode/.ssh"
     stdin_open: true # docker run -i
     tty: true # docker run -t
